@@ -331,7 +331,7 @@ Html::header(($is_new ? 'Nuevo Dispositivo' : 'Editar: ' . ($device['name'] ?? '
               <i class="ti ti-circle-check me-1"></i>
               <strong><?= htmlspecialchars($linked_item_name) ?></strong>
               <span class="badge bg-secondary ms-1"><?= htmlspecialchars($device['itemtype']) ?></span>
-              <a href="<?= $CFG_GLPI['root_doc'] ?>/<?= strtolower($device['itemtype']) ?>.form.php?id=<?= $device['items_id'] ?>"
+              <a href="<?= PluginFreeradiusRadiusSync::getGlpiItemUrl($device['itemtype'], (int)$device['items_id']) ?>"
                  target="_blank" class="ms-2 small"><i class="ti ti-external-link"></i> Ver</a>
             </div>
             <?php endif; ?>

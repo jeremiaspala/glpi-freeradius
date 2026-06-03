@@ -316,6 +316,13 @@ class PluginFreeradiusRadiusSync {
         return $row['name'] ?? '';
     }
 
+    // Devuelve la URL correcta del formulario GLPI para cualquier itemtype (incluyendo Unmanaged)
+    public static function getGlpiItemUrl(string $itemtype, int $items_id): string {
+        if (empty($itemtype) || !$items_id) return '';
+        if (!class_exists($itemtype)) return '';
+        return $itemtype::getFormURLWithID($items_id, false);
+    }
+
     public function testConnection(): array {
         $r = $this->ssh('echo connection_ok');
         return [

@@ -182,7 +182,7 @@ $qs = http_build_query(array_filter([
               $glpi_url   = '';
               if (!empty($row['itemtype']) && !empty($row['items_id'])) {
                   $glpi_name = PluginFreeradiusRadiusSync::getGlpiItemName($row['itemtype'], (int)$row['items_id']);
-                  $glpi_url  = ($CFG_GLPI['root_doc'] ?? '') . '/' . strtolower($row['itemtype']) . '.form.php?id=' . $row['items_id'];
+                  $glpi_url  = PluginFreeradiusRadiusSync::getGlpiItemUrl($row['itemtype'], (int)$row['items_id']);
               }
             ?>
             <tr class="row-item">

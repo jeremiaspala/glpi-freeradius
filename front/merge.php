@@ -357,10 +357,11 @@ Html::header('FreeRADIUS - Merge/Reconciliación', $_SERVER['PHP_SELF'], 'plugin
           </thead>
           <tbody>
             <?php foreach ($glpi_not_in_radius as $g): ?>
+            <?php global $CFG_GLPI; ?>
             <tr>
               <td>
                 <span class="badge bg-secondary me-1"><?= $g['itemtype'] ?></span>
-                <a href="<?= $CFG_GLPI['root_doc'] ?>/<?= strtolower($g['itemtype']) ?>.form.php?id=<?= $g['items_id'] ?>"
+                <a href="<?= PluginFreeradiusRadiusSync::getGlpiItemUrl($g['itemtype'], (int)$g['items_id']) ?>"
                    target="_blank" class="text-decoration-none fw-semibold">
                   <?= htmlspecialchars($g['name']) ?>
                 </a>
