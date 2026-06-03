@@ -3,9 +3,9 @@
 Plugin para GLPI 11 que integra la gestión de dispositivos autenticados por MAC Address (MAB) en FreeRADIUS directamente desde el inventario.
 
 Si alguna vez administraste una red con autenticación 802.1X basada en MAC y tuviste que mantener el archivo `authorize` de FreeRADIUS a mano, sabés lo tedioso que es. Este plugin resuelve exactamente eso: te permite gestionar todos tus dispositivos desde GLPI, vincularlos con el inventario, y sincronizar los cambios con FreeRADIUS con un solo clic.
-<img width="1904" height="802" alt="Captura de pantalla_20260603_133240" src="https://github.com/user-attachments/assets/8fd3a12a-59a7-436a-a9e5-713ebbd278b2" />
----
 
+---
+<img width="1904" height="802" alt="Captura de pantalla_20260603_133240" src="https://github.com/user-attachments/assets/8fd3a12a-59a7-436a-a9e5-713ebbd278b2" />
 ## ¿Qué hace?
 
 FreeRADIUS permite autenticar dispositivos en la red usando su MAC address como credencial (técnica conocida como MAC Authentication Bypass o MAB). Cada dispositivo autorizado queda registrado en un archivo de texto (`authorize`) junto con la VLAN que debe recibir. Mantener ese archivo actualizado cuando tenés cientos de equipos es un dolor.
