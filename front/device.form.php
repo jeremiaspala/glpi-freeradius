@@ -42,6 +42,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         goto render_form;
     }
 
+    // El campo mac_address tiene índice UNIQUE a nivel de tabla, sin importar is_deleted.
+    // Si la MAC pertenece a un dispositivo dado de baja, hay que purgarlo para poder reutilizarla.
+    $DB->delete('glpi_plugin_freeradius_devices', [
+        'mac_address' => $mac,
+        'is_deleted'  => 1,
+        ['NOT' => ['id' => $id ?: 0]],
+    ]);
+
     $oui = PluginFreeradiusOui::lookup($mac, trim($_POST['name'] ?? ''));
     $data = [
         'name'          => trim($_POST['name'] ?? ''),
